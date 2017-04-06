@@ -8,9 +8,9 @@ public class Payment {
     this.amount = amount;
   }
 
-  public Payment combine(Payment other) {
-    if (cc.equals(other.cc)) {
-      return new Payment(cc, amount + other.amount);
+  public static Payment combine(Payment payment1, Payment payment2) {
+    if (payment1.cc.equals(payment2.cc)) {
+      return new Payment(payment1.cc, payment1.amount + payment2.amount);
     } else {
       throw new IllegalStateException(
                             "Can't combine payments to different cards");
